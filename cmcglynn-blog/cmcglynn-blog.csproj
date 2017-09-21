@@ -210,7 +210,6 @@
     <Compile Include="Models\EmailModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\mytesthelper.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="Models\SearchHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
