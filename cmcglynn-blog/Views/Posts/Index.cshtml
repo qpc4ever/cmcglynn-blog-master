@@ -1,0 +1,179 @@
+﻿@model IPagedList<cmcglynn_blog.Models.Post>
+    @using PagedList;
+@using PagedList.Mvc;
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+}
+
+    <h1 style="text-align:center; font-size:50px">Blog Post's</h1>
+  
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Create New Blog Post", "Create")
+</p>
+}
+
+
+
+    <div class="blog-post">
+        @*<tr>
+            <th>*@<div class="row" style="font-size:35px;padding-top:20px;">
+                      <div class="col-md-3">
+                          @*@Html.DisplayNameFor(model => model.Title)*@
+                          @*</th>*@
+                      </div>
+    @*<th>*@
+                      <div class="col-md-3">
+                          @*@Html.DisplayNameFor(model => model.Body)*@
+                          </div>
+                          @*</th>
+            <th>*@<div class="col-md-3">
+    @*@Html.DisplayNameFor(model => model.Created)*@
+        </div>
+    @*</th>*@
+    @*<th>
+            @Html.DisplayNameFor(model => model.Updated)
+        </th>*@
+    @*<th>*@<div class="col-md-3">
+    @*@Html.DisplayNameFor(model => model.MediaUrl)*@
+        </div>
+    @*</th>
+            <th></th>
+        </tr>*@
+</div>
+</div>
+        @foreach (var item in Model)
+        {
+        
+            <section id="profile" class="section">
+                <div class="container section-wrapper">
+                    <div class="section-content">
+                        <div class="row">
+                            <div class="col-md-7 match-height">
+                                <!-- PROFILE TEXT START -->
+                                <div class="profile-text padding-right-yes">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @*<h2 class="section-title">@Html.DisplayFor(modelItem => item.Title)</h2>*@
+                                            <a href="@Url.Action("Details", "Posts", new { slug = item.Slug })" class="section-title">@item.Title</a>
+                                            <p>
+                                                @Html.Raw(item.Body)
+                                            </p>
+                                            <span class="divider"></span>
+                                            <p class="text-grey">
+                                                @Html.DisplayFor(modelItem => item.Created)
+                                            </p>
+                                            <p class="text-grey">
+                                                @*Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.*@
+                                            </p>
+                                        </div>
+                                        <!-- //.col-md-12 -->
+                                    </div>
+                                    <!-- //.row -->
+                                </div>
+                                <!-- //PROFILE TEXT END -->
+                                <!-- CONTACT DETAILS START -->
+                                <div class="contact-details padding-right-yes">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-5">
+                                            <h4></h4>
+                                            <ul class="list-unstyled text-grey">
+                                                
+                                                    @if (User.IsInRole("Admin"))
+                {
+                                                        <li>@Html.ActionLink("Edit", "Edit", new { id = item.Id })</li>
+                                                    }
+                                                    @if (User.IsInRole("Admin"))
+                {
+                                                        <li>@Html.ActionLink("Delete", "Delete", new { id = item.Id })</li>
+                                                    }
+                                                <li>@Html.ActionLink("Details", "Details", new { slug = item.Slug })</li>
+                                                
+                                            </ul>
+                                        </div>
+                                        <!-- //.col-md-5 -->
+                                        <div class="col-sm-6 col-md-7">
+                                            <a href="@Url.Action("Create", "Comments")" class="btn btn-lg btn-custom">
+                                               Leave a Comment
+                                            </a>
+                                        </div>
+                                        <!-- //.col-md-6 -->
+                                    </div>
+                                    <!-- //.row -->
+                                </div>
+                                <!-- //CONTACT DETAILS END -->
+                            </div>
+                            <!-- //.col-md-7 -->
+                            <!-- PROFILE PICTURE START -->
+                            <div class="col-md-5 hidden-xs hidden-sm match-height pp-wrapper">
+                                <div class="profile-picture style-one">
+
+
+                                    
+                                    <div class="row">
+                                        <div class="col-md-12" style="max-width:325px">
+                                            @*if (item.MediaUrl != null)
+                                    {*@
+                                            @*<img class="img-responsive" src="@item.MediaUrl" alt="">*@
+                                            <a href="@Url.Action("Details", "Posts", new { slug = item.Slug })"><img class="img-responsive"src="@item.MediaUrl" alt=""></a>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <!-- //PROFILE PICTURE END -->
+                        </div>
+                        <!-- //.row -->
+                    </div>
+                    <!-- //.section-content -->
+                </div>
+                <!-- //.container -->
+            </section>
+            @*<tr>
+                <td>*@<div class="row" style="padding-top:20px;">
+                          <div class="col-md-3">
+                             
+                              </div>
+                              @*</td>
+            <td>*@             <div class="col-md-3">
+    @*@Html.Raw(item.Body)*@
+    </div>
+    @*</td>
+        <td>*@<div class="col-md-3">
+    
+    </div>
+    @*</td>*@
+    @*<td>
+            @Html.DisplayFor(modelItem => item.Updated)
+        </td>*@
+    @*<td>*@<div class="col-md-3">
+    
+    </div>
+</div>
+            if (item.MediaUrl != null)
+            {
+                <div class="row">
+    <div class="col-md-12">
+        @*<img class="img-responsive" src="@item.MediaUrl" alt="">*@
+    </div>
+</div>
+            }
+    @*</td>
+        <td>*@
+    
+    @*</td>*@
+    @*</tr>*@
+
+
+
+        }
+
+    @*</table>*@
+<div class="row">
+    <div class="col-md-6" style="padding-top:60px">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))
+    </div>
+</div>

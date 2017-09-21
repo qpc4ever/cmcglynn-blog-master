@@ -1,0 +1,75 @@
+﻿@model cmcglynn_blog.Models.Post
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="text-align:center; font-size:50px">POST</h2>
+
+<div>
+    <h4 style="text-align:center; font-size:45px">Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Body)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created)
+        </dd>*@
+
+        @*<dt>
+                @Html.DisplayNameFor(model => model.Updated)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Updated)
+            </dd>*@
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.MediaUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MediaUrl)
+        </dd>
+
+    </dl>*@
+@foreach (var comment in Model.Comments)
+{
+    @comment.Body
+}
+
+
+</div>
+ <div class="row">
+                                        <div class="col-md-12" style="max-width:325px">
+                                            @*if (item.MediaUrl != null)
+                                    {*@
+                                            @*<img class="img-responsive" src="@.MediaUrl" alt="">*@
+                                           
+                                        </div>
+                                    </div>
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) 
+   }
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,491 @@
+﻿<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+
+    <!-- Site Title -->
+    <title>Chris McGlynn - Creative Portfolio/Blog </title>
+    <link rel="shortcut icon" href="~/assets/images/cm_monogram_1x.png?" type="image/x-icon" />
+
+
+
+    <meta name="description" content="Creative Resume Template">
+    <meta name="keywords" content="berg, creative, resume, template">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Google Font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Font icons CSS -->
+    <link href="~/assets/plugins/icons-mind/style.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/fontawesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Plugins CSS -->
+    <link href="~/assets/plugins/jpreloader/css/jpreloader.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/animate-css/animate.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/magnificPopup/magnific-popup.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/flexSlider/flexslider.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/plugins/morphext/morphext.css" rel="stylesheet" type="text/css">
+
+    <!-- Main CSS -->
+    <link href="~/assets/css/berg.css" rel="stylesheet" type="text/css">
+
+    <!-- Color CSS -->
+    <!--<link href="~/assets/css/colors/green.css" rel="stylesheet" type="text/css">-->
+    <!-- Modernizr JS for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 8]>
+    <script src="~/assets/plugins/modernizr.min.js"></script>
+    <![endif]-->
+</head>
+<!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" data-offset="66">
+    <!--[if lt IE 10]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- HERO START -->
+    <header id="home" class="hero">
+        <div class="hero-body">
+            <div class="hero-text text-center">
+                <h1>
+                    Chris McGlynn <span class="blinker"></span>
+                </h1>
+
+                <h1 class="small" style="font-size:35px;"><span id="js-rotating">DEVELOPER | DESIGNER | PROGRAMMER | ASP.NET | C# | MVC | JAVASCRIPT | HTML | CSS | Bootstrap | SQL | GITHUB </span></h1>
+
+                <p>Musician, Audio Engineer, Podcast/Radio Personality, Magazine Editor.</p>
+
+                @*<div class="page-scroll">*@
+                <div style="padding-top:320px">
+                    <b style="font-size:55px;"> @Html.ActionLink("MY BLOG", "Index", "Posts")</b>
+                </div>
+                    @*<a href="posts" class="btn btn-lg btn-custom">
+                        MY BLOG
+                    </a>*@
+                </div>
+                <!-- //.page-scroll -->
+            </div>
+            <!-- //.hero-text -->
+        @*</div>*@
+        <!-- //.hero-body -->
+    </header>
+    <!-- //HERO END -->
+    <!-- NAVIGATION START -->
+    <nav id="navigation" class="navbar navbar-fixed-top center-menu" role="navigation">
+        <div class="container navbar-container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".berg-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand visible-xs visible-sm" href="#page-top">QPC</a>
+            </div>
+            <!-- //.navbar-header -->
+
+            <div class="navbar-collapse collapse berg-collapse">
+                @*<ul class="nav navbar-nav">*@
+                    <div class="row" style="padding-top:0px">
+                        <div class="col-md-3" style="padding-top:25px;">
+                            <b style="padding-top:30px; font-size:25px;">@Html.ActionLink("HOME", "Index", "Home")</b>
+                            @*<a href="home">HOME</a>*@
+                            </div>
+                            @*</>*@
+                        <div class="col-md-3" style="padding-top:25px;">
+                            <b style="padding-top:30px; font-size:25px;"> @Html.ActionLink("POSTS", "Index", "Posts")</b>
+                            @*<a href="posts">POSTS</a>*@
+                            </div>
+                        <div class="col-md-3" style="padding-top:25px;">
+                           <b style="padding-top:30px; font-size:25px;"> @Html.ActionLink("CONTACT", "Contact", "Home")</b>
+                            @*<a href="contact">CONTACT</a>*@
+                            </div>
+                        <div class="col-md-3">
+                            <b style="padding-bottom:0px; font-size:25px;"> @Html.Partial("_LoginPartial")</b>
+                            </div>
+
+                        </div>
+                            @*<li class="page-scroll">
+                <a href="#portfolio">Portfolio</a>
+            </li>
+
+            <li class="page-scroll">
+                <a href="#services">Services</a>
+            </li>
+
+            <li class="page-scroll">
+                <a href="#resume">Resume</a>
+            </li>*@
+
+                            @*<li class="page-scroll">
+                <a href="#references">References</a>
+            </li>*@
+
+                            @*<li class="page-scroll">
+                <a href="#skills">Skills</a>
+            </li>*@
+
+
+                            
+@*</ul>*@
+            </div>
+            <!-- //.navbar-collapse -->
+        </div>
+        <!-- //.navbar-container -->
+    </nav>
+    <!-- //NAVIGATION END -->
+    <div class="row" style="background-color: #2e2e2e; font-family: 'Raleway', sans-serif;">
+        <div style="margin: 200px; color: white">
+            @RenderBody()
+        </div>
+    </div>
+
+    <!-- CONTACT SECTION START -->
+    <section id="contact" class="section">
+        <div class="container section-wrapper">
+            <div class="section-content">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="section-title">Contact Me</h2>
+                        <p class="section-subtitle">
+                            Have a project you'd like to discuss?
+                        </p>
+                        <span class="divider center"></span>
+                    </div>
+                    <!-- //.col-md-12 -->
+                </div>
+                <!-- //.row -->
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <!-- CONTACT DETAILS START -->
+                        <div class="contact-details text-center">
+                            <div class="speech-bubble">
+                                <i class="icon-Speach-Bubble11"></i>
+                                <h4 class="text-grey">
+                                    Say<br>Hello
+                                </h4>
+                            </div>
+                            <!-- //.speech-bubble -->
+                            <h2>Chris <strong>McGlynn</strong></h2>
+                            <h4 class="text-grey">qpc4ever@@gmail.com</h4>
+                            <span class="divider center"></span>
+                        </div>
+                        <!-- //CONTACT DETAILS END -->
+                    </div>
+                    <!-- //.col-md-12 -->
+                </div>
+                <!-- //.row -->
+            </div>
+            <!-- //.section-content -->
+        </div>
+        <!-- //.container -->
+    </section>
+    <!-- //CONTACT SECTION END -->
+    <!-- FOOTER START -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="page-scroll">
+                        <a href="#page-top"><i class="icon-Arrow-Up"></i></a>
+                    </div>
+                    <!-- //.page-scroll -->
+
+                    <ul class="list-inline social-icons">
+                        @*<li>
+                            <div class="item">
+                                <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                            </div>*@
+                        <!-- //.item -->
+                        @*</li>
+
+                            <li>
+                                <div class="item">
+                                    <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                                </div>*@
+                        <!-- //.item -->
+                        @*</li>*@
+
+                        <li>
+                            <div class="item">
+                                <a href="https://www.linkedin.com/in/chris-mcglynn-73614714a/" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                            <!-- //.item -->
+                        </li>
+
+                        <li>
+                            <div class="item">
+                                <a href="https://github.com/qpc4ever" target="_blank"><i class="fa fa-github"></i></a>
+                            </div>
+                            <!-- //.item -->
+                        </li>
+
+                        @*<li>
+                            <div class="item">
+                                <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
+                            </div>*@
+                        <!-- //.item -->
+                        @*</li>*@
+                    </ul>
+                </div>
+                <!-- //.col-md-12 -->
+            </div>
+            <!-- //.row -->
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright text-center">
+                        <p class="text-grey">&copy; 2017 Chris McGlynn. All rights reserved.</p>
+                    </div>
+                    <!-- //.copyright -->
+                </div>
+                <!-- //.col-md-12 -->
+            </div>
+            <!-- //.row -->
+        </div>
+        <!-- //.container -->
+        <div style="background-color:black;" id="modalPalindrome" class="modal fade" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+
+                <h1>Palindrome Word Check</h1>
+                <input type="text" style="color:black" placeholder="Enter word" id="testword" onkeydown="if (event.keyCode == 13) document.getElementById('run').click()" />
+                <button id="run" onclick="palindrome(testword.value)" style="color:black; border-radius:8px">Execute</button>
+                <div>
+                    @Html.ActionLink("Back", "Index")
+                </div>
+                <div id="result"></div>
+                <pre class="brush: js">
+            function palindrome(str) {
+            str = str.toLowerCase();
+            if (str.split("").reverse().join("") === str) {
+                document.getElementById("result").innerHTML = str + " is a Palindrome.";
+            } else {
+                document.getElementById("result").innerHTML = str + " is NOT a Palindrome.";
+            }
+        }
+        
+                                   </pre>
+            </div>
+        </div>
+
+        <div style="background-color:black;" id="modalFactorial" class="modal fade" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+
+                <h1>Get factorial of a number</h1>
+                <input type="number" style="color:black" placeholder="Enter number" id="testNumber" onkeydown="if (event.keyCode == 13) document.getElementById('Run').click()" />
+                <button id="Run" onclick="numFac()" style="color:black; border-radius:8px">Execute</button>
+                <div>
+                    @Html.ActionLink("Back", "Index")
+                </div>
+                <div id="total"></div>
+                <pre class="brush: js">
+            function numFac() {
+            var i, num, fact;
+            fact = 1;
+            num = Number(document.getElementById("testNumber").value);
+
+            for (i = 1; i <= num; i++) {
+                fact = fact * i;
+            }
+            document.getElementById("total").innerHTML = fact;
+        }
+                                   </pre>
+            </div>
+        </div>
+
+        <div style="background-color:black;" id="modalFizzBuzz" class="modal fade" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+
+                <h1>FIZZBUZZ</h1>
+                <input type="number" style="color:black" placeholder="Enter number" id="testNumber2" onkeydown="if (event.keyCode == 13) document.getElementById('run2').click()" />
+                <input type="number" style="color:black" placeholder="Enter number" id="testNumber3" onkeydown="if (event.keyCode == 13) document.getElementById('run2').click()" />
+                <button id="run2" onclick="fizzBuzz()" style="color:black; border-radius:8px">Execute</button>
+                <div>
+                    @Html.ActionLink("Back", "Index")
+                </div>
+                <div id="result2"></div>
+                <pre class="brush: js">
+            function fizzBuzz() {
+            var firstNumber = Number(document.getElementById("testNumber2").value);
+            var secondNumber = Number(document.getElementById("testNumber3").value);
+            var result2 = "";
+            for (var i = 1; i <= 100; i++) {
+
+                if (i % firstNumber == 0 && i % secondNumber == 0) {
+                    result2 += " fizz buzz ";
+                }
+                else if (i % firstNumber == 0) {
+                    result2 += " fizz ";
+                }
+                else if (i % secondNumber == 0) {
+                    result2 += " buzz ";
+                }
+
+                else {
+                    result2 += i + " ";
+                }
+            }
+                document.getElementById("result2").innerHTML = result2;
+            
+        }
+                                   </pre>
+            </div>
+        </div>
+
+        <div style="background-color:black;" id="modalCalc" class="modal fade" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+
+                <h1>Test numbers</h1>
+
+                <button id="run3" onclick="numCal()" style="color:black; border-radius:8px">Execute</button>
+                <div>
+                    @Html.ActionLink("Back", "Index")
+                </div>
+                <div id="Result5"></div>
+                <div id="Result"></div>
+                <div id="Result2"></div>
+                <div id="Result3"></div>
+                <div id="Result4"></div>
+
+                <ul>
+                    <li>Sum of all numbers</li>
+                    <li>Mean of all numbers</li>
+                    <li>Product of all numbers</li>
+                    <li>Largest of all numbers</li>
+                    <li>Smallest of all numbers</li>
+                </ul>
+
+                <input id="test2" type="number" style="color:black" placeholder="Enter number" onkeydown="if (event.keyCode == 13) document.getElementById('run3').click()" />
+
+                <input id="test3" type="number" style="color:black" placeholder="Enter number" onkeydown="if (event.keyCode == 13) document.getElementById('run3').click()" />
+
+                <input id="test4" type="number" style="color:black" placeholder="Enter number" onkeydown="if (event.keyCode == 13) document.getElementById('run3').click()" />
+
+                <input id="test5" type="number" style="color:black" placeholder="Enter number" onkeydown="if (event.keyCode == 13) document.getElementById('run3').click()" />
+
+                <input id="test6" type="number" style="color:black" placeholder="Enter number" onkeydown="if (event.keyCode == 13) document.getElementById('run3').click()" />
+
+                <pre class="brush: js">
+    function numCal() {
+    var firstNumber = Number(document.getElementById("test2").value);
+    var secondNumber = Number(document.getElementById("test3").value);
+    var thirdNumber = Number(document.getElementById("test4").value);
+    var fourthNumber = Number(document.getElementById("test5").value);
+    var fifthNumber = Number(document.getElementById("test6").value);
+    var sixthNumber = firstNumber + secondNumber + thirdNumber + fourthNumber + fifthNumber;
+    document.getElementById("Result5").innerHTML = sixthNumber;
+    var seventhNumber = firstNumber + secondNumber + thirdNumber + fourthNumber + fifthNumber / 5;
+    document.getElementById("Result").innerHTML = seventhNumber;
+    var eighthNumber = firstNumber * secondNumber * thirdNumber * fourthNumber * fifthNumber;
+    document.getElementById("Result2").innerHTML = eighthNumber;
+    //end of math
+
+    document.getElementById("Result3").innerHTML = Math.max(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
+    document.getElementById("Result4").innerHTML = Math.min(firstNumber, secondNumber, thirdNumber, fourthNumber, fifthNumber);
+    // end of largest and smallest numbers
+}
+                                   </pre>
+            </div>
+        </div>
+
+        <div style="background-color:black;" id="modalAlphabeticalOrder" class="modal fade" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <!-- Modal content-->
+
+                <h1>Letters of words in alphabetical order</h1>
+                <input type="text" style="color:black" id="testWord" onkeydown="if (event.keyCode == 13) document.getElementById('run4').click()" />
+                <button id="run4" onclick="wordAlph(testWord.value)" style="color:black; border-radius:8px">Execute</button>
+                <div>
+                    @Html.ActionLink("Back", "Index")
+                </div>
+                <div id="alph"></div>
+                <pre class="brush: js">
+                                function wordAlph(str) {
+    var changeChar = str.split('').sort().join('');
+
+    document.getElementById("alph").innerHTML = changeChar;
+}
+                                   </pre>
+            </div>
+        </div>
+
+        <div style="background-color:black;" id="modalWordCombo" class="modal fade" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+
+                <h1>Letter combinations of words</h1>
+                <input type="text" style="color:black" id="testWord2" onkeydown="if (event.keyCode == 13) document.getElementById('run5').click()" />
+                <button id="run5" onclick="wordComb(testWord2.value)" style="color:black; border-radius:8px">Execute</button>
+                <div>
+                    @Html.ActionLink("Back", "Index")
+                </div>
+                <div id="combo"></div>
+                <pre class="brush: js">
+                    function wordComb(str1) {
+    var array1 = [];
+    for (var x = 0, y = 1; x < str1.length; x++ , y++) {
+        array1[x] = str1.substring(x, y);
+    }
+    var combi = [];
+    var temp = "";
+    var slent = Math.pow(2, array1.length);
+
+    for (var i = 0; i < slent; i++) {
+        temp = "";
+        for (var j = 0; j < array1.length; j++) {
+            if ((i & Math.pow(2, j))) {
+                temp += array1[j];
+            }
+        }
+        if (temp !== "") {
+            combi.push(temp);
+        }
+        document.getElementById("combo").innerHTML = (combi.join("\n"));
+    }
+}
+</pre>
+            </div>
+        </div>
+
+    </footer>
+    <!-- //FOOTER END -->
+    <!-- Plugins JS -->
+    <script src="~/assets/plugins/jquery.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/jpreloader/js/jpreloader.min.js"></script>
+    <script src="~/assets/plugins/detectmobilebrowser/detectmobilebrowser.js"></script>
+    <script src="~/assets/plugins/debouncer/debouncer.js"></script>
+    <script src="~/assets/plugins/easing/jquery.easing.min.js"></script>
+    <script src="~/assets/plugins/sticky/jquery.sticky.js"></script>
+    <script src="~/assets/plugins/inview/jquery.inview.min.js"></script>
+    <script src="~/assets/plugins/matchHeight/jquery.matchHeight-min.js"></script>
+    <script src="~/assets/plugins/magnificPopup/jquery.magnific-popup.min.js"></script>
+    <script src="~/assets/plugins/flexSlider/jquery.flexslider-min.js"></script>
+    <script src="~/assets/plugins/countTo/jquery.countTo.js"></script>
+    <script src="~/assets/plugins/morphext/morphext.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="~/assets/js/main.js"></script>
+
+    <!-- Text Rotator JS -->
+    <script src="~/assets/js/text-rotator.js"></script>
+
+    <!-- Animation JS (Optional) -->
+    <script src="~/assets/js/animation.js"></script>
+    <!--Innitializes Script-->
+    @RenderSection("scripts", required: false)
+</body>
+</html>
