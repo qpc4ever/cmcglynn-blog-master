@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using cmcglynn_blog.Models;
+using Microsoft.AspNet.Identity;
 
 namespace cmcglynn_blog.Controllers
 {
@@ -15,36 +16,36 @@ namespace cmcglynn_blog.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Comments
-        public ActionResult Index()
-        {
-            var comments = db.Comments.Include(c => c.Author).Include(c => c.BlogPost);
-            return View(comments.ToList());
-        }
+        //// GET: Comments
+        //public ActionResult Index()
+        //{
+        //    var comments = db.Comments.Include(c => c.Author).Include(c => c.BlogPost);
+        //    return View(comments.ToList());
+        //}
 
-        // GET: Comments/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Comments comments = db.Comments.Find(id);
-            if (comments == null)
-            {
-                return HttpNotFound();
-            }
-            return View(comments);
-        }
+        //// GET: Comments/Details/5
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    Comments comments = db.Comments.Find(id);
+        //    if (comments == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View(comments);
+        //}
 
-        // GET: Comments/Create
-        [Authorize]
-        public ActionResult Create()
-        {
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName");
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "MediaUrl");
-            return View();
-        }
+        //// GET: Comments/Create
+        //[Authorize]
+        //public ActionResult Create()
+        //{
+        //    ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName");
+        //    ViewBag.PostId = new SelectList(db.Posts, "Id", "MediaUrl");
+        //    return View();
+        //}
 
         // POST: Comments/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -52,18 +53,21 @@ namespace cmcglynn_blog.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,PostId,AuthorId,Body,Created,Updated,UpdateReason")] Comments comments)
+        public ActionResult Create([Bind(Include = "Id,PostId,Body")] Comments comment)
         {
+            Post post = db.Posts.Find(comment.PostId);
+
             if (ModelState.IsValid)
             {
-                db.Comments.Add(comments);
+                var user = db.Users.Find(User.Identity.GetUserId());
+                comment.AuthorId = user.Id;
+                comment.Created = DateTime.Now;
+                db.Comments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Posts", new { slug = post.Slug });
             }
 
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comments.AuthorId);
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "MediaUrl", comments.PostId);
-            return View(comments);
+            return RedirectToAction("Details", "Posts", new { slug = post.Slug });
         }
 
         // GET: Comments/Edit/5
