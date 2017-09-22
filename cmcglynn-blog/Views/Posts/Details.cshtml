@@ -48,17 +48,19 @@
 
         <dd>
             @Html.DisplayFor(model => model.MediaUrl)
-        </dd>
+        </dd>*@
 
-    </dl>*@
-@foreach (var comment in Model.Comments)
-{
-    @comment.Body
-}
+    </dl>
+    @foreach (var comment in Model.Comments)
+    {
+        <p>@comment.Body</p>
+        <p>@comment.Author</p>
 
+    }
 
 </div>
  <div class="row">
+    
                                         <div class="col-md-12" style="max-width:325px">
                                             @*if (item.MediaUrl != null)
                                     {*@

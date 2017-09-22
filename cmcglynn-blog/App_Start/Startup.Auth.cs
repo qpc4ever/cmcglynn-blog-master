@@ -54,15 +54,15 @@ namespace cmcglynn_blog
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "119047692132525",
+               appSecret: "f05d39f5aab029976e5cf5cabca80569");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "858858019920-6q04kdrvc1l3gl7kuic5tkt9ee9fs0fb.apps.googleusercontent.com",
+                ClientSecret = "Ak32mLH6Qby5RWnIiNibrFeZ"
+            });
         }
     }
 }

@@ -173,7 +173,21 @@ namespace cmcglynn_blog.Controllers
                 }
 
                 post.Updated = System.DateTime.Now;
+                db.SaveChanges();
 
+                var Slug = StringUtilities.URLFriendly(post.Title);
+                if (String.IsNullOrWhiteSpace(Slug))
+                {
+                    ModelState.AddModelError("Title", "Invalid title");
+                    return View(post);
+                }
+                if (db.Posts.Any(p => p.Slug == Slug))
+                {
+                    ModelState.AddModelError("Title", "The title must be unique");
+                    return View(post);
+                }
+
+                post.Slug = Slug;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
