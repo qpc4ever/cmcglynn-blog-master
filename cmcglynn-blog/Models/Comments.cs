@@ -17,7 +17,7 @@ namespace cmcglynn_blog.Models
         public DateTime? Updated { get; set; }
         public string UpdateReason { get; set; }
 
-        public virtual Post BlogPost { get; set; }
+        public virtual Post post { get; set; }
         public virtual ApplicationUser Author { get; set; }
     }
 }
