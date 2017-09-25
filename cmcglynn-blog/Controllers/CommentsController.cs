@@ -71,7 +71,7 @@ namespace cmcglynn_blog.Controllers
         }
 
         // GET: Comments/Edit/5
-        [Authorize]
+        [Authorize(Roles = "Admin,Moderator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,56 +83,56 @@ namespace cmcglynn_blog.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comments.AuthorId);
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "MediaUrl", comments.PostId);
             return View(comments);
         }
 
         // POST: Comments/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
+        [Authorize(Roles = "Admin,Moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,Body,Created,Updated,UpdateReason")] Comments comments)
+        public ActionResult Edit([Bind(Include = "Id,PostId,AuthorId,Body,Created,Updated,UpdateReason")] Comments comment)
         {
+            Post post = db.Posts.Find(comment.PostId);
+
             if (ModelState.IsValid)
             {
-                db.Entry(comments).State = EntityState.Modified;
+                db.Entry(comment).State = EntityState.Modified;
+                comment.Updated = DateTime.Now;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Posts", new { slug = post.Slug });
             }
-            ViewBag.AuthorId = new SelectList(db.Users, "Id", "FirstName", comments.AuthorId);
-            ViewBag.PostId = new SelectList(db.Posts, "Id", "MediaUrl", comments.PostId);
-            return View(comments);
+            return View(comment);
         }
 
         // GET: Comments/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Comments comments = db.Comments.Find(id);
-            if (comments == null)
+            Comments comment = db.Comments.Find(id);
+            if (comment == null)
             {
                 return HttpNotFound();
             }
-            return View(comments);
+            return View(comment);
         }
 
         // POST: Comments/Delete/5
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Moderator")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Comments comments = db.Comments.Find(id);
-            db.Comments.Remove(comments);
+            Comments comment = db.Comments.Find(id);
+            Post post = db.Posts.Find(comment.PostId);
+            db.Comments.Remove(comment);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Details", "Posts", new { slug = post.Slug });
         }
 
         protected override void Dispose(bool disposing)

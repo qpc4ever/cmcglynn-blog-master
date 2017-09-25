@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2 style="text-align:center; font-size:50px">Edit</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Post</h4>
+        <h4 style="text-align:center; font-size:40px">Post</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
@@ -29,8 +29,8 @@
             @Html.LabelFor(model => model.Published, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Published, new { htmlAttributes = new { @class = "form-control" } })
-                @*<textarea id="editor" class="form-control" name="Body" rows="5"></textarea>*@
-                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                @*<textarea id="editor" class="form-control" name="Body" rows="5"></textarea>
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })*@
 
             </div>
         </div>
@@ -39,9 +39,9 @@
             @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })*@
-                <textarea id="editor" class="form-control" name="Body" rows="5">@Model.Body</textarea>
+                <textarea id="editor" class="form-control" name="Body" rows="5">@Html.Raw(Model.Body)</textarea>
                 @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
-                @Html.Raw(Model.Body)
+                @*@Html.Raw(Model.Body)*@
             </div>
         </div>
 
@@ -61,13 +61,13 @@
             </div>
         </div>*@
 
-        <div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.MediaUrl, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.MediaUrl, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.MediaUrl, "", new { @class = "text-danger" })
             </div>
-        </div>
+        </div>*@
 
         <div class="form-group">
             <label class="control-label col-md-2">Upload Image</label>
@@ -86,7 +86,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <button style="border-radius:8px;color:black;border-color:white">@Html.ActionLink("Back to List", "Index")</button>
 </div>
 
 @section Scripts {

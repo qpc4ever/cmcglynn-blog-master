@@ -6,6 +6,7 @@ using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using cmcglynn_blog.Models;
+using Owin.Security.Providers.LinkedIn;
 
 namespace cmcglynn_blog
 {
@@ -57,6 +58,8 @@ namespace cmcglynn_blog
             app.UseFacebookAuthentication(
                appId: "119047692132525",
                appSecret: "f05d39f5aab029976e5cf5cabca80569");
+
+            app.UseLinkedInAuthentication("78bg616oimo0sk", "XtpS7HFF3bu3A9c9");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

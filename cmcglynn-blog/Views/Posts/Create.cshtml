@@ -39,7 +39,7 @@
                 @*@Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })*@
                 <textarea id="editor" class="form-control" name="Body" rows="5"></textarea>
                 @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
-            
+            @Html.Raw(Model.Body)
             </div>
         </div>
 
