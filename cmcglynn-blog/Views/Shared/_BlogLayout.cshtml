@@ -58,7 +58,7 @@
 
     @using (Html.BeginForm("Index", "Posts", FormMethod.Post))
     {
-        <div>
+        <div style="padding-top:20px;">
             <input style="color:black" name="searchStr" type="text" placeholder="Search" value="@ViewBag.Search" />
             <button class="btn btn-primary" type="submit">Search</button>
         </div>
@@ -165,7 +165,7 @@
     </nav>
     <!-- //NAVIGATION END -->
     <div class="row" style="background-color: #2e2e2e; font-family: 'Raleway', sans-serif;">
-        <div style="margin: 200px; color: white">
+        <div style=" color: white">
             @RenderBody()
         </div>
     </div>

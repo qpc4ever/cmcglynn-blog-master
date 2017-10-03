@@ -1,13 +1,13 @@
 ﻿@model cmcglynn_blog.Models.Post
-
+@*  *@
 @{
     ViewBag.Title = "Details";
 }
 
-<h2 style="text-align:center; font-size:50px">POST</h2>
+<h2 style="text-align:center; font-size:50px; padding-top:10px; font:bold; color:white;">WELCOME TO MY WORLD !!!</h2>
 
 <div>
-    <h4 style="text-align:center; font-size:45px">Details</h4>
+    <h4 style="text-align:center; font-size:45px"></h4>
     <hr />
     <section id="profile" class="section">
         <div class="container section-wrapper">
@@ -20,7 +20,7 @@
                                 <div class="col-md-12">
                                     @*<h2 class="section-title">@Html.DisplayFor(modelItem => Model.Title)</h2>*@
                                     <a href="@Url.Action("Details", "Posts", new { slug = Model.Slug })" class="section-title">@Model.Title</a>
-                                    <p>
+                                    <p style="margin:200px;">
                                         @Html.Raw(Model.Body)
                                     </p>
                                     <span class="divider"></span>
@@ -109,11 +109,11 @@
         @foreach (var comment in Model.Comments)
         {
             <hr />
-            <div class="card" style="padding: 15px">
-                <div class="card-header">
+            <div class="card" style="padding: 15px; margin-left:90px;">
+                <div class="card-header" style="color:gray" >
                     Left by @comment.Author.FullName at @comment.Created
                 </div>
-                <div class="card-block">
+                <div class="card-block" style="color: #c80a48;">
                     <p class="card-text">@Html.Raw(comment.Body)</p>
                     @if (User.IsInRole("Admin") || User.IsInRole("Moderator"))
                     {
@@ -121,17 +121,18 @@
                         <a href="@Url.Action("Delete", "Comments", new { id = comment.Id })" class="btn btn-primary">Delete</a>
                     }
                     else
-                    {
-                        <p>Log In To Leave A Comment</p>
-                    }
+                    {@*<a href="@Url.Action("Login", "Account", new { id = Model.Id })">Log In To Leave A Comment</a>*@
+                    <a href="@Url.Action("Login", "Account", new { id = Model.Id })" style="border-radius: 8px;border: 2px solid white; margin-top:2px;" class="btn btn-lg btn-custom">Log In To Leave A Comment</a>
+                        }
 
-                </div>
+</div>
             </div>      
             }
     </section>
 </div>
-<p>
+<p style="margin-left:105px; padding-top:5px;">
     @Html.ActionLink("Back to List", "Index")
+    @*href="@Url.Action("Back to List", "Index", new { id = Model.Id })" style="border-radius: 8px;border: 2px solid white; margin-top:2px; margin-left:95px;" class="btn btn-lg btn-custom">*@
 </p>
 
 @section Scripts {

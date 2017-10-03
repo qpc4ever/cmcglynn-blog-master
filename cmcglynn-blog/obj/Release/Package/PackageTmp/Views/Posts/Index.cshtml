@@ -95,7 +95,7 @@
                 {
                                                         <li>@Html.ActionLink("Delete", "Delete", new { id = post.Id })</li>
                                                     }
-                                                <li>@Html.ActionLink("Details", "Details", new { slug = post.Slug })</li>
+                                                
                                                 
                                             </ul>
                                         </div>
@@ -178,7 +178,7 @@
 
     @*</table>*@
 <div class="row">
-    <div class="col-md-6" style="padding-top:60px">
+    <div class="col-md-12" style="padding-top:60px; margin-left:60px;">
         Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
         @Html.PagedListPager(Model, page => Url.Action("Index", new { page, searchStr = ViewBag.Search }))
     </div>
