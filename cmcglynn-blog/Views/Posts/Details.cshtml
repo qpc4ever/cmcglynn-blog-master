@@ -76,7 +76,7 @@
                                     @*if (Model.MediaUrl != null)
                                         {*@
                                     @*<img class="img-responsive" src="@Model.MediaUrl" alt="">*@
-                                    <a href="@Url.Action("Details", "Posts", new { slug = Model.Slug })"><img class="img-responsive" src="@Model.MediaUrl" alt=""></a>
+                                    <a href="@Url.Action("Details", "Posts", new { slug = Model.Slug })"><img class="img-responsive" src="@Model.MediaUrl" style="margin-top:20px" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
         @if (Request.IsAuthenticated)
         {
             
-            <div style="padding: 15px">
+            <div style="margin-left:300px;margin-right:300px">
                 <p>Leave a Comment</p>
                 @using (Html.BeginForm("Create", "Comments"))
                 {
@@ -99,7 +99,7 @@
                     <input type="hidden" name="PostId" value="@Model.Id"/>
                     <textarea id="editor" class="form-control" name="Body" rows="5"></textarea>
                     <br />
-                    <input type="submit" class="btn btn-default" vaue="Submit"/>
+                    <input type="submit" class="btn btn-default" vaue="Submit" style="margin-bottom:20px;"/>
                     @*@Html.Raw(Model.Body)*@
                 }
             </div>
@@ -131,7 +131,7 @@
     </section>
 </div>
 <p style="margin-left:105px; padding-top:5px;">
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Blogs", "Index")
     @*href="@Url.Action("Back to List", "Index", new { id = Model.Id })" style="border-radius: 8px;border: 2px solid white; margin-top:2px; margin-left:95px;" class="btn btn-lg btn-custom">*@
 </p>
 

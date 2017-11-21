@@ -4,13 +4,13 @@
     ViewBag.Title = "Delete";
 }
 
-<h2 style="text-align:center">Delete</h2>
+@*<h2 style="text-align:center">Delete</h2>*@
 
-<h3 style="text-align:center">Are you sure you want to delete this?</h3>
+<h3 style="text-align:center">Are you sure you want to delete this Post?</h3>
 <div>
-    <h4 style="text-align:center">Post</h4>
+    <h3 style="text-align:center"></h3>
     <hr />
-    <dl class="dl-horizontal">
+    <dl style="margin-left:300px;margin-right:400px" class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(model => model.Title)
         </dt>
@@ -52,13 +52,13 @@
         </dd>*@
 
     </dl>
-    <p><img class="img-responsive" src="@Model.MediaUrl" alt=""></p>
+    <p><img style="margin-left:300px;" class="img-responsive" height="120" width="120" src="@Model.MediaUrl" alt=""></p>
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
+        <div style="margin-left:300px;" class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-primary" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to Blogs", "Index")
         </div>
     }
 </div>

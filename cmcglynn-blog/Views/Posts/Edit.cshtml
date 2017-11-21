@@ -17,7 +17,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
+        <div style="margin-left:300px;margin-right:400px" class="form-group" class="form-group">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div style="margin-left:300px;margin-right:400px" class="form-group">
             @Html.LabelFor(model => model.Published, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Published, new { htmlAttributes = new { @class = "form-control" } })
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div style="margin-left:300px;margin-right:400px" class="form-group">
             @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })*@
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div style="margin-left:300px;margin-right:400px" class="form-group">
             @Html.LabelFor(model => model.Created, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Created, new { htmlAttributes = new { @class = "form-control" } })
@@ -69,7 +69,7 @@
             </div>
         </div>*@
 
-        <div class="form-group">
+        <div style="margin-left:300px;margin-right:400px" class="form-group">
             <label class="control-label col-md-2">Upload Image</label>
             <div class="col-md-10">
                 <input name="image" type="file" class="form-control" />  @*INPUT TO UPLOAD IMAGES*@
@@ -85,8 +85,8 @@
     </div>
 }
 
-<div>
-    <button style="border-radius:8px;color:black;border-color:white">@Html.ActionLink("Back to List", "Index")</button>
+<div style="margin-left:200px;">
+    <button style="border-radius:8px;color:black;border-color:white">@Html.ActionLink("Back to Blogs", "Index")</button>
 </div>
 
 @section Scripts {
